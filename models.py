@@ -12,8 +12,25 @@ class Frog(pygame.sprite.Sprite):
 
         self.image, self.rect = load_image('transfrog.png', -1)
 
+    def move(self, dx, dy):
+        self.rect = self.rect.move(dx, dy)
+
+        return self
+
     def update(self):
-        pass
+        keys = pygame.key.get_pressed()
+
+        if keys[K_s]:
+            self.move(0, 1)  # ruch w dol
+
+        if keys[K_w]:
+            self.move(0, -1)   # ruch w gore
+
+        if keys[K_d]:
+            self.move(1, 0)  # ruch w prawo
+
+        if keys[K_a]:
+            self.move(-1, 0)   # ruch w lewo
 
 
 # helpers

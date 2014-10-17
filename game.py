@@ -20,12 +20,12 @@ frog_sprite = pygame.sprite.RenderPlain((frog,))
 
 if __name__ == '__main__':
     while True:
-        clock.tick(60)
+        clock.tick(200)
 
         # events
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                break
+        # for event in pygame.event.get():
+        #     if event.type == QUIT:
+        #         break
 
         frog_sprite.update()
 
@@ -33,3 +33,5 @@ if __name__ == '__main__':
         window_surface.blit(background, (0, 0))
         frog_sprite.draw(window_surface)
         pygame.display.flip()
+
+        pygame.event.pump()
